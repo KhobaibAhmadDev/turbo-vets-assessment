@@ -6,6 +6,14 @@
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
   "dependencies": {
+    "@nestjs/jwt": "^11.0.2",
+    "@nestjs/mapped-types": "^2.1.0",
+    "@nestjs/passport": "^11.0.5",
+    "class-validator": "^0.14.3",
+    "passport-jwt": "^4.0.1",
     "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/passport-jwt": "^4.0.1"
   }
 }
