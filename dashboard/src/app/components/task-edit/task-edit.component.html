@@ -1,0 +1,17 @@
+<div class="max-w-md mx-auto mt-10 p-6 bg-white rounded shadow">
+  <h2 class="text-xl font-bold mb-4">Edit Task</h2>
+  <form [formGroup]="taskForm" (ngSubmit)="updateTask()">
+    <input formControlName="title" placeholder="Title" class="w-full p-2 mb-3 border rounded" required />
+    <textarea formControlName="description" placeholder="Description" class="w-full p-2 mb-3 border rounded"></textarea>
+    <select formControlName="category" class="w-full p-2 mb-3 border rounded">
+      <option>Work</option>
+      <option>Personal</option>
+      <option>Other</option>
+    </select>
+    <label class="inline-flex items-center mb-3">
+      <input type="checkbox" formControlName="completed" class="mr-2">
+      Completed
+    </label>
+    <button type="submit" class="w-full p-2 bg-green-500 text-white rounded">Update Task</button>
+  </form>
+</div>

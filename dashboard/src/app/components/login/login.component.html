@@ -1,0 +1,9 @@
+<div class="max-w-md mx-auto mt-20 p-6 bg-white rounded shadow">
+  <h2 class="text-xl font-bold mb-4">Login</h2>
+  <form (submit)="login(); $event.preventDefault()">
+    <input type="email" placeholder="Email" [(ngModel)]="email" name="email" class="w-full p-2 mb-3 border rounded" required />
+    <input type="password" placeholder="Password" [(ngModel)]="password" name="password" class="w-full p-2 mb-3 border rounded" required />
+    <button type="submit" class="w-full p-2 bg-blue-500 text-white rounded">Login</button>
+    <div *ngIf="error" class="text-red-500 mt-2">{{ error }}</div>
+  </form>
+</div>
