@@ -3,3 +3,6 @@ export * from './enums/task-category.enum';
 export * from './dto/create-task.dto';
 export * from './dto/update-task.dto';
 export * from './interfaces/jwt-payload.interface';
+export * from './models/organization.entity';
+export * from './models/task.entity';
+export * from './models/user.entity';

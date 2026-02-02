@@ -11,7 +11,6 @@
     "noPropertyAccessFromIndexSignature": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "baseUrl": "."
   },
   "files": [],
   "include": [],

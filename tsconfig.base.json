@@ -11,8 +11,12 @@
     "noImplicitOverride": true,
     "noUnusedLocals": true,
     "useDefineForClassFields": false,
+    "baseUrl": ".",
     "paths": {
-      "@myorg/data": ["libs/src/index.ts"]
+      "@myorg/data": ["libs/src/lib/data/index.ts"],
+      "@myorg/data/*": ["libs/src/lib/data/*"],
+      "@myorg/auth": ["libs/src/lib/auth/index.ts"],
+      "@myorg/auth/*": ["libs/src/lib/auth/*"]
     }
   }
 }
