@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { User } from './user.entity';
+import type { User } from './user.entity';
 
 @Entity()
 export class Task {
@@ -15,6 +15,9 @@ export class Task {
   @Column({ default: false })
   completed!: boolean;
 
-  @ManyToOne(() => User, (user) => user.tasks)
-  owner!: User;
+  @ManyToOne(() => {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    return require('./user.entity').User;
+  }, (user: User) => user.tasks, { nullable: true })
+  owner?: User;
 }

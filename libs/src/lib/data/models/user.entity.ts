@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from 'typeorm';
-import { Organization } from './organization.entity';
+import type { Organization } from './organization.entity';
 import { Role } from '../enums/roles.enum';
-import { Task } from './task.entity';
+import type { Task } from './task.entity';
 
 @Entity()
 export class User {
@@ -17,9 +17,15 @@ export class User {
   @Column({ type: 'enum', enum: Role, default: Role.VIEWER })
   role!: Role;
 
-  @ManyToOne(() => Organization, (org) => org.users)
+  @ManyToOne(() => {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    return require('./organization.entity').Organization;
+  }, (org: Organization) => org.users)
   organization?: Organization;
 
-  @OneToMany(() => Task, (task) => task.owner)
-  tasks?: Task[];
+  @OneToMany(() => {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    return require('./task.entity').Task;
+  }, (task: Task) => task.owner)
+  tasks!: Task[];
 }

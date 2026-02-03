@@ -4,8 +4,8 @@ import { Observable } from 'rxjs';
 import { CreateTaskDto, Task, UpdateTaskDto } from '@myorg/data'
 
 @Injectable({ providedIn: 'root'})
-export class TaskServie {
-    private apiUrl = 'http://localhost:3333/tasks';
+export class TaskService {
+    private apiUrl = 'http://localhost:3000/api/tasks';
 
     constructor(private http: HttpClient) {}
 

@@ -8,7 +8,7 @@ interface LoginResponse {
 
 @Injectable({ providedIn: 'root' })
 export class AuthService{
-    private apiUrl = 'http://localhost:3333';
+    private apiUrl = 'http://localhost:3000';
     private tokenSubject = new BehaviorSubject<string | null>(null);
 
     constructor(private http: HttpClient) {
@@ -17,7 +17,7 @@ export class AuthService{
     }
 
     login(email: string, password: string): Observable<LoginResponse> {
-        return this.http.post<LoginResponse>(`${this.apiUrl}/auth/login`, {email, password}).pipe(
+        return this.http.post<LoginResponse>(`${this.apiUrl}/api/auth/login`, {email, password}).pipe(
             tap(res => {
                 localStorage.setItem('token', res.accessToken);
                 this.tokenSubject.next(res.accessToken);

@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
-import { User } from './user.entity';
+import type { User } from './user.entity';
 
 @Entity()
 export class Organization {
@@ -9,6 +9,9 @@ export class Organization {
   @Column()
   name!: string;
 
-  @OneToMany(() => User, (user) => user.organization)
+  @OneToMany(() => {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    return require('./user.entity').User;
+  }, (user: User) => user.organization)
   users!: User[];
 }

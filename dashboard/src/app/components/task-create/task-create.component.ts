@@ -2,10 +2,17 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TaskService } from '../../services/task.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common'; 
 
 @Component({
+  standalone: true,
   selector: 'app-task-create',
   templateUrl: './task-create.component.html',
+  imports: [
+    ReactiveFormsModule,
+    CommonModule
+  ]
 })
 export class TaskCreateComponent {
   taskForm: FormGroup;
